@@ -66,4 +66,5 @@ This is a web application built with Angular on the frontend and Node.js on the 
 |-- Frontend          # Angular frontend             
 |-- README.md
 |-- LICENSE
+/
 
