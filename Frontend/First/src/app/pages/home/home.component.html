@@ -1,0 +1,35 @@
+<!-- product-list.component.html -->
+
+<div>
+    <h2>Product List</h2>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of displayedProducts">
+          <td><img [src]="product.imgUrl" alt="{{ product.name }}" width="50" height="50"></td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.price | currency }}</td>
+          <td>
+            <button (click)="selectProduct(product)" [disabled]="isSelected(product._id)">Select</button>
+            <button (click)="deselectProduct(product)" [disabled]="!isSelected(product._id)">Deselect</button>
+            <span *ngIf="isSelected(product._id)">Selected</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="pagination">
+      <button (click)="changePage(-1)" [disabled]="currentPage === 1">Previous</button>
+      <span>{{ currentPage }} / {{ totalPages }}</span>
+      <button (click)="changePage(1)" [disabled]="currentPage === totalPages">Next</button>
+    </div>
+  </div>
+  
